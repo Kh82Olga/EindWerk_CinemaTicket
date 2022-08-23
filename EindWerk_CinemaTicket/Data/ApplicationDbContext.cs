@@ -21,13 +21,13 @@ namespace EindWerk_CinemaTicket.Data
                 new Genre { GenreId = 1, GenreName = "Action"},
                 new Genre { GenreId = 2, GenreName = "Comedy"},
                 new Genre { GenreId = 3, GenreName = "Drama"},
-                new Genre { GenreKey = 4, GenreName = "Fantasy"},
-                new Genre { GenreKey = 5, GenreName = "Horror"},
-                new Genre { GenreKey = 6, GenreName = "Thriller"},
-                new Genre { GenreKey = 7, GenreName = "Western"},
-                new Genre { GenreKey = 8, GenreName = "Romantic"},
-                new Genre { GenreKey = 9, GenreName = "Family"},
-                new Genre { GenreKey = 10, GenreName = "Cartoon"}
+                new Genre { GenreId = 4, GenreName = "Fantasy"},
+                new Genre { GenreId = 5, GenreName = "Horror"},
+                new Genre { GenreId = 6, GenreName = "Thriller"},
+                new Genre { GenreId = 7, GenreName = "Western"},
+                new Genre { GenreId = 8, GenreName = "Romantic"},
+                new Genre { GenreId = 9, GenreName = "Family"},
+                new Genre { GenreId = 10, GenreName = "Cartoon"}
                 );
         }
         public DbSet<Genre> Genres { get; set; }
