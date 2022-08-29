@@ -13,6 +13,7 @@ namespace EindWerk_CinemaTicket.Models
         public int SeatId { get; set; }
         [ForeignKey("SeatId")]
         public virtual CinemaSeat CinemaSeat { get; set; }
+        public virtual Cart Cart { get; set; }
 
     }
 }

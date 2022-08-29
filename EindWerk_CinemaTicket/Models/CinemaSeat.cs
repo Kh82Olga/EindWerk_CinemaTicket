@@ -7,7 +7,7 @@ namespace EindWerk_CinemaTicket.Models
         [Key]
         public int SeatId { get; set; }
         public string SeatNumber { get; set;}
-        public int  PriceAdult { get; set; }
-        public int PriceChild { get; set; }
+        public int PriceAdult = 15;
+        public int PriceChild = 5;
     }
 }
