@@ -29,6 +29,8 @@ namespace EindWerk_CinemaTicket.Data
                 new Genre { GenreId = 9, GenreName = "Family"},
                 new Genre { GenreId = 10, GenreName = "Cartoon"}
                 );
+
+            base.OnModelCreating(modelBuilder);
         }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies { get; set; }
