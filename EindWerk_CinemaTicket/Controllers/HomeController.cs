@@ -1,4 +1,5 @@
-﻿using EindWerk_CinemaTicket.Models;
+﻿using EindWerk_CinemaTicket.Data;
+using EindWerk_CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,11 +12,18 @@ namespace EindWerk_CinemaTicket.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
+
         }
 
         public IActionResult Index()

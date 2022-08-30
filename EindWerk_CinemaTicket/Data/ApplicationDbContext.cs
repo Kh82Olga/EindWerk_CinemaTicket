@@ -64,11 +64,47 @@ namespace EindWerk_CinemaTicket.Data
                );
             modelBuilder.Entity<Movie>().HasData
                 (
-                new Movie { MovieId = 1, MovieName = "", Description = "", Img = "", GenreId = 0},
-                new Movie { MovieId = 2, MovieName = "", Description = "", Img = "", GenreId = 0},
-                new Movie { MovieId = 3, MovieName = "", Description = "", Img = "", GenreId = 0},
-                new Movie { MovieId = 4, MovieName = "", Description = "", Img = "", GenreId = 0},
-                new Movie { MovieId = 5, MovieName = "", Description = "", Img = "", GenreId = 0}
+                new Movie 
+                { 
+                    MovieId = 1, 
+                    MovieName = "Fantastic Beasts: The Secrets of Dumbledore", 
+                    Description = "Professor Albus Dumbledore must assign Newt Scamander and his fellow partners as Grindelwald begins to lead an army to eliminate all Muggles.", 
+                    Img = "~/css/images/Fantastic_Beasts.jpg", 
+                    GenreId = 4
+                },
+                new Movie 
+                { 
+                    MovieId = 2, 
+                    MovieName = "Minions: The Rise of Gru", 
+                    Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.", 
+                    Img = "~/css/images/Minions.jpg", 
+                    GenreId = 10
+                },
+                new Movie 
+                { 
+                    MovieId = 3, 
+                    MovieName = "Avatar: The Way of Water", 
+                    Description = "Jake Sully lives with his newfound family formed on the planet of Pandora. " +
+                    "Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their planet.", 
+                    Img = "~/css/images/Avatar.jpg", 
+                    GenreId = 1
+                },
+                new Movie 
+                { 
+                    MovieId = 4, 
+                    MovieName = "Bullet Train", 
+                    Description = "Five assassins aboard a fast moving bullet train find out their missions have something in common.", 
+                    Img = "~/css/images/Bullet_Train.jpg",
+                    GenreId = 6
+                },
+                new Movie 
+                { 
+                    MovieId = 5, 
+                    MovieName = "Morbius", 
+                    Description = "Biochemist Michael Morbius tries to cure himself of a rare blood disease, but he inadvertently infects himself with a form of vampirism instead.", 
+                    Img = "~/css/images/Morbius.jpg", 
+                    GenreId = 5
+                }
                 );
 
             base.OnModelCreating(modelBuilder);
