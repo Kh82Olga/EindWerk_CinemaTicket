@@ -1,5 +1,3 @@
-using System;
-
 namespace EindWerk_CinemaTicket.Models
 {
     public class ErrorViewModel

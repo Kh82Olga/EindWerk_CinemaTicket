@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<EindWerk_CinemaTicket.Models.Genre>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Genre";
 }
 
 <h1>Index</h1>
@@ -25,9 +25,9 @@
                 @Html.DisplayFor(modelItem => item.GenreName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.GenreId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.GenreId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GenreId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.GenreKey">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GenreKey">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GenreKey">Delete</a>
             </td>
         </tr>
 }
