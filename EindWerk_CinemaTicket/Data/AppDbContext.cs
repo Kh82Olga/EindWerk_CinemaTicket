@@ -35,10 +35,10 @@ namespace EindWerk_CinemaTicket.Data
                 );
             modelBuilder.Entity<CinemaHall>().HasData
                (
-               new CinemaHall { CinemaHallId = 1, Name ="4DX", Logo = "~/css/images/Logo/4dx.jpg", Description = "Revolutionary cinema technology that puts all your senses into action" },
-               new CinemaHall { CinemaHallId = 2, Name ="Laser Ultra", Logo = "~/css/images/Logo/laserultra.jpg", Description = "The combination of Dolby Atmos and 4k laser projection"},
-               new CinemaHall { CinemaHallId = 3, Name ="IMAX", Logo = "~/css/images/Logo/imax.jpg", Description = "More picture. More sound. A visual and sound experience"},
-               new CinemaHall { CinemaHallId = 4, Name ="Screen X", Logo = "~/css/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
+               new CinemaHall { CinemaHallId = 1, Name ="4DX", Logo = "/css/images/Logo/4dx.jpg", Description = "Revolutionary cinema technology that puts all your senses into action" },
+               new CinemaHall { CinemaHallId = 2, Name ="Laser Ultra", Logo = "/css/images/Logo/laserultra.jpg", Description = "The combination of Dolby Atmos and 4k laser projection"},
+               new CinemaHall { CinemaHallId = 3, Name ="IMAX", Logo = "/css/images/Logo/imax.jpg", Description = "More picture. More sound. A visual and sound experience"},
+               new CinemaHall { CinemaHallId = 4, Name ="Screen X", Logo = "/css/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
                );
             modelBuilder.Entity<Actor>().HasData(
                 new Actor { ActorId = 1, FullName = "Johnny Depp", ProfilePictureURL = "~/css/images/ImgActors/JohnnyDepp.jpg" },

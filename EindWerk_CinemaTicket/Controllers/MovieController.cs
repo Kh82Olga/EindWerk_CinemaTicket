@@ -14,7 +14,7 @@ namespace EindWerk_CinemaTicket.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _context.Movies.ToListAsync();
+            var allMovies = await _context.Movies.Include(n=>n.CinemaHall).Include(n=>n.Genre).ToListAsync();
             return View(allMovies);
         }
     }
