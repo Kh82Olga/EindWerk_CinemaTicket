@@ -10,6 +10,6 @@ namespace EindWerk_CinemaTicket.Data.Interfaces
         Task<Actor> GetByIdAsync(int Id);
         Task InsertAsync(Actor actor);
         Task<Actor> UpdateAsync(Actor actor);
-        void Delete(Actor actor);
+        Task DeleteAsync(int Id);
     }
 }

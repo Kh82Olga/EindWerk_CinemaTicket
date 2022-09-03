@@ -14,10 +14,11 @@ namespace EindWerk_CinemaTicket.Data.Repositories
         {
             _context = context;
         }
-        public void Delete(Actor actor)
+        public async Task DeleteAsync(int Id)
         {
+            var actor = await _context.Actors.FirstOrDefaultAsync(n => n.ActorId == Id);
             _context.Actors.Remove(actor);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<Actor>> GetAllAsync()

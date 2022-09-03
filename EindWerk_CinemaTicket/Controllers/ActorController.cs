@@ -1,4 +1,5 @@
 ﻿using EindWerk_CinemaTicket.Data;
+using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.Repositories;
 using EindWerk_CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,15 +10,15 @@ namespace EindWerk_CinemaTicket.Controllers
 {
     public class ActorController : Controller
     {
-        private readonly ActorRepo _actorRepo;
+        private readonly IActor _service ;
 
-        public ActorController(ActorRepo actorRepo)
+        public ActorController(IActor service)
         {
-            _actorRepo = actorRepo;
+            _service=service;
         }
         public async Task<IActionResult> Index()
         {
-            var actors = await _actorRepo.GetAllAsync();
+            var actors = await _service.GetAllAsync();
             return View(actors);
         }
         [HttpGet]
@@ -32,14 +33,14 @@ namespace EindWerk_CinemaTicket.Controllers
             {
                 return View(actor);
             }
-            await _actorRepo.InsertAsync(actor);
+            await _service.InsertAsync(actor);
             return RedirectToAction(nameof(Index));
             
         }
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            var actorDetails = await _actorRepo.GetByIdAsync(id);
+            var actorDetails = await _service.GetByIdAsync(id);
             if (actorDetails == null)
             {
                 return View("Not Found");
@@ -50,7 +51,7 @@ namespace EindWerk_CinemaTicket.Controllers
         [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
-            var actor = await _actorRepo.GetByIdAsync(id);
+            var actor = await _service.GetByIdAsync(id);
             if (actor == null)
             {
                 return View("Not Found");
@@ -64,20 +65,29 @@ namespace EindWerk_CinemaTicket.Controllers
             {
                 return View(actor);
             }
-            await _actorRepo.UpdateAsync(actor);
+            await _service.UpdateAsync(actor);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public IActionResult Delete(int id)
+        public async Task< IActionResult> Delete(int id)
         {
-            var actor = _actorRepo.GetByIdAsync(id);
+            var actor = await _service.GetByIdAsync(id);
+            if (actor == null)
+            {
+                return View("Not Found");
+            }
             return View(actor);
         }
-        [HttpPost]
-        public IActionResult Delete(Actor actor)
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _actorRepo.Delete(actor);
-            return View();
+            var actor = await _service.GetByIdAsync(id);
+            if (actor == null)
+            {
+                return View("Not Found");
+            }
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

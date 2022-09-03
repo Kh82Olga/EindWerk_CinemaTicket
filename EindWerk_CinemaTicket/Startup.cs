@@ -34,6 +34,7 @@ namespace EindWerk_CinemaTicket
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IActor, ActorRepo>();
             
+
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddDefaultUI()
                 .AddDefaultTokenProviders()
