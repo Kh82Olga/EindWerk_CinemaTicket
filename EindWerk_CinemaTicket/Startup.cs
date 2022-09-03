@@ -68,7 +68,7 @@ namespace EindWerk_CinemaTicket
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=CinemaHall}/{action=Index}/{id?}");
+                    pattern: "{controller=Movie}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
