@@ -6,10 +6,10 @@ namespace EindWerk_CinemaTicket.Data.Interfaces
 {
     public interface IActor
     {
-        Task<List<Actor>> GetAll();
-        Actor GetById(int Id);
-        void Insert(Actor actor);
-        void Update(Actor actor);
+        Task<List<Actor>> GetAllAsync();
+        Task<Actor> GetByIdAsync(int Id);
+        Task InsertAsync(Actor actor);
+        Task<Actor> UpdateAsync(Actor actor);
         void Delete(Actor actor);
     }
 }

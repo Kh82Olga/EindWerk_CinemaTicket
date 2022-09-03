@@ -17,8 +17,8 @@ namespace EindWerk_CinemaTicket.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var data = await _actorRepo.GetAll();
-            return View(data);
+            var actors = await _actorRepo.GetAllAsync();
+            return View(actors);
         }
         [HttpGet]
         public IActionResult Insert()
@@ -26,27 +26,51 @@ namespace EindWerk_CinemaTicket.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Insert(Actor actor)
+        public async Task<IActionResult> InsertAsync(Actor actor)
         {
-            _actorRepo.Insert(actor);
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _actorRepo.InsertAsync(actor);
+            return RedirectToAction(nameof(Index));
+            
         }
         [HttpGet]
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var actor = _actorRepo.GetById(id);
+            var actorDetails = await _actorRepo.GetByIdAsync(id);
+            if (actorDetails == null)
+            {
+                return View("Not Found");
+            }
+            return View(actorDetails);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            var actor = await _actorRepo.GetByIdAsync(id);
+            if (actor == null)
+            {
+                return View("Not Found");
+            }
             return View(actor);
         }
         [HttpPost]
-        public IActionResult Update(Actor actor)
+        public async Task<IActionResult> Update(Actor actor)
         {
-            _actorRepo.Update(actor);
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _actorRepo.UpdateAsync(actor);
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var actor = _actorRepo.GetById(id);
+            var actor = _actorRepo.GetByIdAsync(id);
             return View(actor);
         }
         [HttpPost]

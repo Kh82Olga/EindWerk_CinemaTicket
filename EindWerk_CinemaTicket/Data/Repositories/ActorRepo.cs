@@ -20,27 +20,29 @@ namespace EindWerk_CinemaTicket.Data.Repositories
             _context.SaveChanges();
         }
 
-        public async Task<List<Actor>> GetAll()
+        public async Task<List<Actor>> GetAllAsync()
         {
             var result= await _context.Actors.ToListAsync();
             return result;
         }
 
-        public Actor GetById(int Id)
+        public async Task<Actor> GetByIdAsync(int Id)
         {
-            return _context.Actors.FirstOrDefault(x => x.ActorId == Id);
+            var result= await _context.Actors.FirstOrDefaultAsync(x => x.ActorId == Id);
+            return result;
         }
 
-        public void Insert(Actor actor)
+        public async Task InsertAsync(Actor actor)
         {
-            _context.Actors.Add(actor);
-            _context.SaveChanges();
+            await _context.Actors.AddAsync(actor);
+            await _context.SaveChangesAsync();
         }
 
-        public void Update(Actor actor)
+        public async Task<Actor> UpdateAsync(Actor actor)
         {
             _context.Actors.Update(actor);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return actor;
         }
     }
 }
