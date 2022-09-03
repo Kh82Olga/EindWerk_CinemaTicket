@@ -1,4 +1,6 @@
 using EindWerk_CinemaTicket.Data;
+using EindWerk_CinemaTicket.Data.Interfaces;
+using EindWerk_CinemaTicket.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,7 @@ namespace EindWerk_CinemaTicket
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IActor, ActorRepo>();
             
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddDefaultUI()

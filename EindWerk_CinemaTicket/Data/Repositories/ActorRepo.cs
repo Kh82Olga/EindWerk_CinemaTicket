@@ -1,7 +1,9 @@
 ﻿using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Data.Repositories
 {
@@ -14,28 +16,31 @@ namespace EindWerk_CinemaTicket.Data.Repositories
         }
         public void Delete(Actor actor)
         {
-            throw new System.NotImplementedException();
+            _context.Actors.Remove(actor);
+            _context.SaveChanges();
         }
 
-        public IEnumerable<Actor> GetAll()
+        public async Task<List<Actor>> GetAll()
         {
-            var result = _context.Actors.ToList();
+            var result= await _context.Actors.ToListAsync();
             return result;
         }
 
         public Actor GetById(int Id)
         {
-            throw new System.NotImplementedException();
+            return _context.Actors.FirstOrDefault(x => x.ActorId == Id);
         }
 
         public void Insert(Actor actor)
         {
-            throw new System.NotImplementedException();
+            _context.Actors.Add(actor);
+            _context.SaveChanges();
         }
 
         public void Update(Actor actor)
         {
-            throw new System.NotImplementedException();
+            _context.Actors.Update(actor);
+            _context.SaveChanges();
         }
     }
 }
