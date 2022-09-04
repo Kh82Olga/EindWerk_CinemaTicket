@@ -18,6 +18,7 @@ namespace EindWerk_CinemaTicket.Data.Repositories
             var entity = await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == Id);
             EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Deleted;
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<T>> GetAllAsync()
@@ -35,12 +36,14 @@ namespace EindWerk_CinemaTicket.Data.Repositories
         public async Task InsertAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
-            entityEntry.State = EntityState.Modified;           
+            entityEntry.State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
     }
 }
