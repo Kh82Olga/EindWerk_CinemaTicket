@@ -1,4 +1,6 @@
 ﻿using EindWerk_CinemaTicket.Data;
+using EindWerk_CinemaTicket.Data.Interfaces;
+using EindWerk_CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -7,14 +9,15 @@ namespace EindWerk_CinemaTicket.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly AppDbContext _context;
-        public MovieController(AppDbContext context)
+        private readonly IMovie _service;
+
+        public MovieController(IMovie service)
         {
-            _context = context;
+            _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _context.Movies.Include(n=>n.CinemaHall).Include(n=>n.Genre).ToListAsync();
+            var allMovies = await _service.GetAllAsync(n=>n.CinemaHall);
             return View(allMovies);
         }
     }

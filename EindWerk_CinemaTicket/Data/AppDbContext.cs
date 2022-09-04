@@ -35,13 +35,13 @@ namespace EindWerk_CinemaTicket.Data
                 );
             modelBuilder.Entity<CinemaHall>().HasData
                (
-               new CinemaHall { CinemaHallId = 1, Name ="4DX", Logo = "/images/Logo/4dx.jpg", Description = "Revolutionary cinema technology that puts all your senses into action" },
-               new CinemaHall { CinemaHallId = 2, Name ="Laser Ultra", Logo = "/images/Logo/laserultra.jpg", Description = "The combination of Dolby Atmos and 4k laser projection"},
-               new CinemaHall { CinemaHallId = 3, Name ="IMAX", Logo = "/images/Logo/imax.jpg", Description = "More picture. More sound. A visual and sound experience"},
-               new CinemaHall { CinemaHallId = 4, Name ="Screen X", Logo = "/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
+               new CinemaHall { Id = 1, Name ="4DX", Logo = "/images/Logo/4dx.jpg", Description = "Revolutionary cinema technology that puts all your senses into action" },
+               new CinemaHall { Id = 2, Name ="Laser Ultra", Logo = "/images/Logo/laserultra.jpg", Description = "The combination of Dolby Atmos and 4k laser projection"},
+               new CinemaHall { Id = 3, Name ="IMAX", Logo = "/images/Logo/imax.jpg", Description = "More picture. More sound. A visual and sound experience"},
+               new CinemaHall { Id = 4, Name ="Screen X", Logo = "/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
                );
             modelBuilder.Entity<Actor>().HasData(
-                new Actor { Id = 1, FullName = "Johnny Depp", ProfilePictureURL = "https://en.wikipedia.org/wiki/File:Johnny_Depp_2020.jpg" },
+                new Actor { Id = 1, FullName = "Johnny Depp", ProfilePictureURL = "/images/ImgActors/JohnnyDepp.jpg" },
                 new Actor { Id = 2, FullName = "Orlando Bloom", ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg" },
                 new Actor { Id = 3, FullName = "Geoffrey Rush", ProfilePictureURL = "/images/ImgActors/GeoffreyRush.jpg" },
                 new Actor { Id = 4, FullName = "Keira Knightley", ProfilePictureURL = "/images/ImgActors/KeiraKnightley.jpg" },
@@ -57,17 +57,17 @@ namespace EindWerk_CinemaTicket.Data
                 (
                 new Movie
                 {
-                    MovieId = 1,
+                    Id = 1,
                     MovieName = "Fantastic Beasts: The Crimes of Grindelwald",
                     Description = "The second installment of the Fantastic Beasts series featuring the adventures of Magizoologist Newt Scamander.",
-                    Image = "https://www.imdb.com/title/tt4123430/mediaviewer/rm3528093952/?ref_=tt_ov_i",
+                    Image = "/images/FanBeastsGrindewald.jpg",
                     GenreId = 4,
                     CinemaHallId = 1,
                     Price = 20
                 },
                 new Movie
                 {
-                    MovieId = 2,
+                    Id = 2,
                     MovieName = "Fantastic Beasts and Where to Find Them",
                     Description = "The adventures of writer Newt Scamander in New York's secret community of witches and wizards seventy years before Harry Potter reads his book in school.",
                     Image = "/images/FanBeasts1.jpg",
@@ -77,7 +77,7 @@ namespace EindWerk_CinemaTicket.Data
                 },
                 new Movie
                 {
-                    MovieId = 3,
+                    Id = 3,
                     MovieName = "Pirates of the Caribbean: Dead Man's Chest",
                     Description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
                     Image = "/images/PiratesChest.jpg",
@@ -87,7 +87,7 @@ namespace EindWerk_CinemaTicket.Data
                 },
                 new Movie
                 {
-                    MovieId = 4,
+                    Id = 4,
                     MovieName = "Pirates of the Caribbean: At World's End",
                     Description = "Captain Barbossa, Will Turner and Elizabeth Swann must sail off the edge of the map, navigate treachery and betrayal, find Jack Sparrow, and make their final alliances for one last decisive battle.",
                     Image = "/images/PiratesWorldsEnd.jpg",
@@ -97,7 +97,7 @@ namespace EindWerk_CinemaTicket.Data
                 },
                 new Movie
                 {
-                    MovieId = 5,
+                    Id = 5,
                     MovieName = "Pirates of the Caribbean: The Curse of the Black Pearl",
                     Description = "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
                     Image = "/images/PiratesBlackPearl.jpg",
@@ -107,7 +107,7 @@ namespace EindWerk_CinemaTicket.Data
                 },
                 new Movie
                 {
-                    MovieId = 6,
+                    Id = 6,
                     MovieName = "Alice Through the Looking Glass",
                     Description = "Alice is appointed to save her beloved Mad Hatter from deadly grief by travelling back to the past, but this means fatally harming Time himself, the noble clockwork man with the device needed to save the Hatter's family from the Red Queen.",
                     Image = "/images/AliceInWonderland.jpg",
@@ -117,7 +117,7 @@ namespace EindWerk_CinemaTicket.Data
                 },
                 new Movie
                 {
-                    MovieId = 7,
+                    Id = 7,
                     MovieName = "Sweeney Todd: The Demon Barber of Fleet Street",
                     Description = "The legendary tale of a barber who returns from wrongful imprisonment to 1840s London, bent on revenge for the rape and death of his wife, and resumes his trade while forming a sinister partnership with his fellow tenant, Mrs. Lovett.",
                     Image = "/images/SweeneyTodd.jpg",

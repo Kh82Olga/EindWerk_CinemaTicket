@@ -3,14 +3,16 @@ using EindWerk_CinemaTicket.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EindWerk_CinemaTicket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220904124043_Key")]
+    partial class Key
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         {
                             Id = 1,
                             FullName = "Johnny Depp",
-                            ProfilePictureURL = "/images/ImgActors/JohnnyDepp.jpg"
+                            ProfilePictureURL = "https://en.wikipedia.org/wiki/File:Johnny_Depp_2020.jpg"
                         },
                         new
                         {
@@ -374,7 +376,7 @@ namespace EindWerk_CinemaTicket.Migrations
 
             modelBuilder.Entity("EindWerk_CinemaTicket.Models.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -397,7 +399,7 @@ namespace EindWerk_CinemaTicket.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("MovieId");
 
                     b.HasIndex("CinemaHallId");
 
@@ -408,7 +410,7 @@ namespace EindWerk_CinemaTicket.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            MovieId = 1,
                             CinemaHallId = 1,
                             Description = "The second installment of the Fantastic Beasts series featuring the adventures of Magizoologist Newt Scamander.",
                             GenreId = 4,
@@ -418,7 +420,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            MovieId = 2,
                             CinemaHallId = 2,
                             Description = "The adventures of writer Newt Scamander in New York's secret community of witches and wizards seventy years before Harry Potter reads his book in school.",
                             GenreId = 4,
@@ -428,7 +430,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            MovieId = 3,
                             CinemaHallId = 3,
                             Description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
                             GenreId = 7,
@@ -438,7 +440,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            MovieId = 4,
                             CinemaHallId = 4,
                             Description = "Captain Barbossa, Will Turner and Elizabeth Swann must sail off the edge of the map, navigate treachery and betrayal, find Jack Sparrow, and make their final alliances for one last decisive battle.",
                             GenreId = 7,
@@ -448,7 +450,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            MovieId = 5,
                             CinemaHallId = 1,
                             Description = "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
                             GenreId = 7,
@@ -458,7 +460,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 6,
+                            MovieId = 6,
                             CinemaHallId = 2,
                             Description = "Alice is appointed to save her beloved Mad Hatter from deadly grief by travelling back to the past, but this means fatally harming Time himself, the noble clockwork man with the device needed to save the Hatter's family from the Red Queen.",
                             GenreId = 9,
@@ -468,7 +470,7 @@ namespace EindWerk_CinemaTicket.Migrations
                         },
                         new
                         {
-                            Id = 7,
+                            MovieId = 7,
                             CinemaHallId = 3,
                             Description = "The legendary tale of a barber who returns from wrongful imprisonment to 1840s London, bent on revenge for the rape and death of his wife, and resumes his trade while forming a sinister partnership with his fellow tenant, Mrs. Lovett.",
                             GenreId = 5,

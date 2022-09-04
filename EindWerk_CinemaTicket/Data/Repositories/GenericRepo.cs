@@ -1,7 +1,10 @@
 ﻿using EindWerk_CinemaTicket.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Data.Repositories
@@ -25,6 +28,13 @@ namespace EindWerk_CinemaTicket.Data.Repositories
         {
             var result = await _context.Set<T>().ToListAsync();
             return result;
+        }
+
+        public async Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            query=includeProperties.Aggregate(query,(current,includeProperty)=>current.Include(includeProperty));
+            return await query.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int Id)

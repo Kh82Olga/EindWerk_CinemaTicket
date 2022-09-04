@@ -34,6 +34,8 @@ namespace EindWerk_CinemaTicket
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IActor, ActorRepo>();
             services.AddScoped<IGenre, GenreRepo>();
+            services.AddScoped<ICinemaHall, CinemaHallRepo>();
+            services.AddScoped<IMovie, MovieRepo>();
             
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
