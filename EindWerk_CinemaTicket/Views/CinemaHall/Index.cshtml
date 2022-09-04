@@ -4,7 +4,7 @@
     ViewData["Title"] = "Cinemas";
 }
 
-<h1>Index</h1>
+<h1>Cinema technologies</h1>
 
 <p>
     <a asp-action="Create">Add New</a>
@@ -27,8 +27,8 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Logo)
+            <td>              
+                <img src="@item.Logo" width="30%"  alt="@item.Name">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

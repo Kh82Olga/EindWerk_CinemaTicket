@@ -41,16 +41,16 @@ namespace EindWerk_CinemaTicket.Data
                new CinemaHall { CinemaHallId = 4, Name ="Screen X", Logo = "/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
                );
             modelBuilder.Entity<Actor>().HasData(
-                new Actor { ActorId = 1, FullName = "Johnny Depp", ProfilePictureURL = "https://en.wikipedia.org/wiki/File:Johnny_Depp_2020.jpg" },
-                new Actor { ActorId = 2, FullName = "Orlando Bloom", ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg" },
-                new Actor { ActorId = 3, FullName = "Geoffrey Rush", ProfilePictureURL = "~/images/ImgActors/GeoffreyRush.jpg" },
-                new Actor { ActorId = 4, FullName = "Keira Knightley", ProfilePictureURL = "~/images/ImgActors/KeiraKnightley.jpg" },
-                new Actor { ActorId = 5, FullName = "Alan Rickman", ProfilePictureURL = "~/images/ImgActors/AlanRickman.jpg" },
-                new Actor { ActorId = 6, FullName = "Jude Law", ProfilePictureURL = "~/images/ImgActors/JudeLaw.jpg" },
-                new Actor { ActorId = 7, FullName = "Eddie Redmayne", ProfilePictureURL = "~/images/ImgActors/EddieRedmayne.jpg" },
-                new Actor { ActorId = 8, FullName = "Dan Fogler", ProfilePictureURL = "~/images/ImgActors/DanFogler.jpg" },
-                new Actor { ActorId = 9, FullName = "Jack Davenport", ProfilePictureURL = "~/images/ImgActors/JackDavenport.jpg" },
-                new Actor { ActorId = 10, FullName = "Helena Bonham Carter", ProfilePictureURL = "~/images/ImgActors/HelenaBCarter.jpg" }
+                new Actor { Id = 1, FullName = "Johnny Depp", ProfilePictureURL = "https://en.wikipedia.org/wiki/File:Johnny_Depp_2020.jpg" },
+                new Actor { Id = 2, FullName = "Orlando Bloom", ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg" },
+                new Actor { Id = 3, FullName = "Geoffrey Rush", ProfilePictureURL = "/images/ImgActors/GeoffreyRush.jpg" },
+                new Actor { Id = 4, FullName = "Keira Knightley", ProfilePictureURL = "/images/ImgActors/KeiraKnightley.jpg" },
+                new Actor { Id = 5, FullName = "Alan Rickman", ProfilePictureURL = "/images/ImgActors/AlanRickman.jpg" },
+                new Actor { Id = 6, FullName = "Jude Law", ProfilePictureURL = "/images/ImgActors/JudeLaw.jpg" },
+                new Actor { Id = 7, FullName = "Eddie Redmayne", ProfilePictureURL = "/images/ImgActors/EddieRedmayne.jpg" },
+                new Actor { Id = 8, FullName = "Dan Fogler", ProfilePictureURL = "/images/ImgActors/DanFogler.jpg" },
+                new Actor { Id = 9, FullName = "Jack Davenport", ProfilePictureURL = "/images/ImgActors/JackDavenport.jpg" },
+                new Actor { Id = 10, FullName = "Helena Bonham Carter", ProfilePictureURL = "/images/ImgActors/HelenaBCarter.jpg" }
 
                 );
             modelBuilder.Entity<Movie>().HasData
@@ -80,7 +80,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieId = 3,
                     MovieName = "Pirates of the Caribbean: Dead Man's Chest",
                     Description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
-                    Image = "~/images/PiratesChest.jpg",
+                    Image = "/images/PiratesChest.jpg",
                     GenreId = 7,
                     CinemaHallId = 3,
                     Price = 20
@@ -100,7 +100,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieId = 5,
                     MovieName = "Pirates of the Caribbean: The Curse of the Black Pearl",
                     Description = "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
-                    Image = "~/images/PiratesBlackPearl.jpg",
+                    Image = "/images/PiratesBlackPearl.jpg",
                     GenreId = 7,
                     CinemaHallId = 1,
                     Price = 20
@@ -110,7 +110,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieId = 6,
                     MovieName = "Alice Through the Looking Glass",
                     Description = "Alice is appointed to save her beloved Mad Hatter from deadly grief by travelling back to the past, but this means fatally harming Time himself, the noble clockwork man with the device needed to save the Hatter's family from the Red Queen.",
-                    Image = "~/images/AliceInWonderland.jpg",
+                    Image = "/images/AliceInWonderland.jpg",
                     GenreId = 9,
                     CinemaHallId = 2,
                     Price = 20
@@ -120,7 +120,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieId = 7,
                     MovieName = "Sweeney Todd: The Demon Barber of Fleet Street",
                     Description = "The legendary tale of a barber who returns from wrongful imprisonment to 1840s London, bent on revenge for the rape and death of his wife, and resumes his trade while forming a sinister partnership with his fellow tenant, Mrs. Lovett.",
-                    Image = "~/images/SweeneyTodd.jpg",
+                    Image = "/images/SweeneyTodd.jpg",
                     GenreId = 5,
                     CinemaHallId = 3,
                     Price = 20

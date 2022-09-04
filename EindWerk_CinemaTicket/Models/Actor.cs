@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using EindWerk_CinemaTicket.Data.Interfaces;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EindWerk_CinemaTicket.Models
 {
-    public class Actor
+    public class Actor:IBase
     {
-        
-        //[Key]
-        public int ActorId { get; set; }
+
+        [Key]
+        public int Id { get; set; }
         [Display(Name = "Profile picture")]
         [Required(ErrorMessage = "Profile picture is required")]
         public string ProfilePictureURL { get; set; }
