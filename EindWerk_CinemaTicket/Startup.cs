@@ -33,6 +33,7 @@ namespace EindWerk_CinemaTicket
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IActor, ActorRepo>();
+            services.AddScoped<IGenre, GenreRepo>();
             
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)

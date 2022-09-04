@@ -22,16 +22,16 @@ namespace EindWerk_CinemaTicket.Data
 
             modelBuilder.Entity<Genre>().HasData
                 (
-                new Genre { GenreKey = 1, GenreName = "Action"},
-                new Genre { GenreKey = 2, GenreName = "Comedy"},
-                new Genre { GenreKey = 3, GenreName = "Drama"},
-                new Genre { GenreKey = 4, GenreName = "Fantasy"},
-                new Genre { GenreKey = 5, GenreName = "Horror"},
-                new Genre { GenreKey = 6, GenreName = "Thriller"},
-                new Genre { GenreKey = 7, GenreName = "Adventure"},
-                new Genre { GenreKey = 8, GenreName = "Romantic"},
-                new Genre { GenreKey = 9, GenreName = "Family"},
-                new Genre { GenreKey = 10, GenreName = "Cartoon"}
+                new Genre { Id = 1, GenreName = "Action"},
+                new Genre { Id = 2, GenreName = "Comedy"},
+                new Genre { Id = 3, GenreName = "Drama"},
+                new Genre { Id = 4, GenreName = "Fantasy"},
+                new Genre { Id = 5, GenreName = "Horror"},
+                new Genre { Id = 6, GenreName = "Thriller"},
+                new Genre { Id = 7, GenreName = "Adventure"},
+                new Genre { Id = 8, GenreName = "Romantic"},
+                new Genre { Id = 9, GenreName = "Family"},
+                new Genre { Id = 10, GenreName = "Cartoon"}
                 );
             modelBuilder.Entity<CinemaHall>().HasData
                (
