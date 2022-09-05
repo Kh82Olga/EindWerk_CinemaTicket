@@ -43,7 +43,7 @@ namespace EindWerk_CinemaTicket.Controllers
             var actorDetails = await _service.GetByIdAsync(id);
             if (actorDetails == null)
             {
-                return View("Not Found");
+                return View("NotFound");
             }
             return View(actorDetails);
         }
@@ -54,7 +54,7 @@ namespace EindWerk_CinemaTicket.Controllers
             var actor = await _service.GetByIdAsync(id);
             if (actor == null)
             {
-                return View("Not Found");
+                return View("NotFound");
             }
             return View(actor);
         }
@@ -74,7 +74,7 @@ namespace EindWerk_CinemaTicket.Controllers
             var actor = await _service.GetByIdAsync(id);
             if (actor == null)
             {
-                return View("Not Found");
+                return View("NotFound");
             }
             return View(actor);
         }
@@ -84,7 +84,7 @@ namespace EindWerk_CinemaTicket.Controllers
             var actor = await _service.GetByIdAsync(id);
             if (actor == null)
             {
-                return View("Not Found");
+                return View("NotFound");
             }
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));

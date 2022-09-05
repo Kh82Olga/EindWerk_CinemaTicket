@@ -36,7 +36,7 @@ namespace EindWerk_CinemaTicket.Controllers
         {
             return View();
         }
-        [HttpPost]
+        //[HttpPost]
         //public async Task<IActionResult> InsertAsync(CinemaHall cinemaHall)
         //{
         //    if (!ModelState.IsValid)
@@ -55,7 +55,7 @@ namespace EindWerk_CinemaTicket.Controllers
             }
             return View(cinemaHall);
         }
-        [HttpPost]
+        //[HttpPost]
         //public async Task<IActionResult> Update(CinemaHall cinemaHall)
         //{
         //    if (!ModelState.IsValid)
@@ -65,7 +65,7 @@ namespace EindWerk_CinemaTicket.Controllers
         //    await _service.UpdateAsync(cinemaHall);
         //    return RedirectToAction(nameof(Index));
         //}
-        [HttpGet]
+        //[HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var cinemaHall = await _service.GetByIdAsync(id);
