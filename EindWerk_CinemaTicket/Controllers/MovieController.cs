@@ -28,7 +28,7 @@ namespace EindWerk_CinemaTicket.Controllers
             return View(movieDetails);
         }
         [HttpGet]
-        public async Task<IActionResult> Insert()
+        public async Task<IActionResult> Create()
         {
             var dropdownsData = await _service.GetDropdownsValues();
             ViewBag.CinemaHalls = new SelectList(dropdownsData.CinemaHalls, "Id", "Name");
@@ -37,7 +37,7 @@ namespace EindWerk_CinemaTicket.Controllers
             return View();
         }
         //[HttpPost]
-        //public async Task<IActionResult> InsertAsync()
+        //public async Task<IActionResult> CreateAsync()
         //{
         //    if (!ModelState.IsValid)
         //    {

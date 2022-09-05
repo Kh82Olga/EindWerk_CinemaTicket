@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Movies";
 }
-@await Html.PartialAsync("_CreatePartialView","Movie")
+<div style="position:static; right:25px;" class="text-white mb-3">
+    <a asp-controller="@Model" asp-action="CreateMovie" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i>Add New</a>
+</div>
 <div class="row">
     @foreach(var item in Model)
     {

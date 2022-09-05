@@ -14,6 +14,11 @@ namespace EindWerk_CinemaTicket.Data.Repositories
             _context = context;
         }
 
+        public Task CreateNewMovie(CreateMovie data)
+        {
+           
+        }
+
         public async Task<Dropdowns> GetDropdownsValues()
         {
             var response=new Dropdowns();
