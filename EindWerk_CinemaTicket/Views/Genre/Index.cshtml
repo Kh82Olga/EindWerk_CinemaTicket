@@ -6,10 +6,8 @@
 
 <h1>Genres</h1>
 
-<div style="position:static; right:25px;" class="text-white">
-    <a asp-controller="Genre" asp-action="Insert" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i>Add New</a>
-</div>
+@await Html.PartialAsync("_CreatePartialView","Genre")
+
 <table class="table">
     <thead>
         <tr>

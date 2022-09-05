@@ -1,6 +1,7 @@
 ﻿using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Data.Repositories
@@ -11,6 +12,16 @@ namespace EindWerk_CinemaTicket.Data.Repositories
         public MovieRepo(AppDbContext context) : base(context)
         {
             _context = context;
+        }
+
+        public async Task<Dropdowns> GetDropdownsValues()
+        {
+            var response=new Dropdowns();
+            response.Actors=await _context.Actors.OrderBy(n=>n.FullName).ToListAsync();
+            response.CinemaHalls=await _context.CinemaHalls.OrderBy(n=>n.Name).ToListAsync();
+            response.Genres=await _context.Genres.OrderBy(n=>n.GenreName).ToListAsync();
+            return response;
+
         }
 
         public async Task<Movie> GetMovieByIdAsync(int id)

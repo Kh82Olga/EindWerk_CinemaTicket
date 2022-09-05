@@ -2,6 +2,7 @@
 using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -20,10 +21,30 @@ namespace EindWerk_CinemaTicket.Controllers
             var allMovies = await _service.GetAllAsync(n=>n.CinemaHall);
             return View(allMovies);
         }
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
             return View(movieDetails);
         }
+        [HttpGet]
+        public async Task<IActionResult> Insert()
+        {
+            var dropdownsData = await _service.GetDropdownsValues();
+            ViewBag.CinemaHalls = new SelectList(dropdownsData.CinemaHalls, "Id", "Name");
+            ViewBag.Genres = new SelectList(dropdownsData.CinemaHalls, "Id", "GenreName");
+            ViewBag.Actors = new SelectList(dropdownsData.CinemaHalls, "Id", "FullName");
+            return View();
+        }
+        //[HttpPost]
+        //public async Task<IActionResult> InsertAsync()
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View();
+        //    }
+        //    await _service.InsertAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }

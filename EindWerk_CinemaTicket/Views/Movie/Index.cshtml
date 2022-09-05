@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Movies";
 }
-
+@await Html.PartialAsync("_CreatePartialView","Movie")
 <div class="row">
     @foreach(var item in Model)
     {
