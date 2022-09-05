@@ -7,7 +7,7 @@ namespace EindWerk_CinemaTicket.Data.Interfaces
     {
         Task<Movie> GetMovieByIdAsync(int id);
         Task<Dropdowns> GetDropdownsValues();
-        Task CreateNewMovie(CreateMovie data);
+        Task CreateNewMovieAsync(CreateMovie data);
 
     }
 }

@@ -36,15 +36,19 @@ namespace EindWerk_CinemaTicket.Controllers
             ViewBag.Actors = new SelectList(dropdownsData.CinemaHalls, "Id", "FullName");
             return View();
         }
-        //[HttpPost]
-        //public async Task<IActionResult> CreateAsync()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-        //    await _service.InsertAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateMovie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                var dropdownsData = await _service.GetDropdownsValues();
+                ViewBag.CinemaHalls = new SelectList(dropdownsData.CinemaHalls, "Id", "Name");
+                ViewBag.Genres = new SelectList(dropdownsData.CinemaHalls, "Id", "GenreName");
+                ViewBag.Actors = new SelectList(dropdownsData.CinemaHalls, "Id", "FullName");
+                return View();
+            }
+            await _service.CreateNewMovieAsync(movie);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

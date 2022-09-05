@@ -14,9 +14,31 @@ namespace EindWerk_CinemaTicket.Data.Repositories
             _context = context;
         }
 
-        public Task CreateNewMovie(CreateMovie data)
+        public async Task CreateNewMovieAsync(CreateMovie data)
         {
-           
+            var newMovie = new Movie()
+            {
+                MovieName = data.MovieName,
+                Description = data.Description,
+                Price = data.Price,
+                Image = data.Image,
+                GenreId = data.GenreId,
+                CinemaHallId = data.CinemaHallId
+            };
+            await _context.Movies.AddAsync(newMovie);
+            await _context.SaveChangesAsync();
+
+            //Add Actors
+            foreach (var actorId in data.ActorIds)
+            {
+                var newActorMovie = new ActorMovie()
+                {
+                    MovieId = newMovie.Id,
+                    ActorId = actorId
+                };
+                await _context.ActorMovies.AddAsync(newActorMovie);
+            }
+            await _context.SaveChangesAsync();
         }
 
         public async Task<Dropdowns> GetDropdownsValues()
