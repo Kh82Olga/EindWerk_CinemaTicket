@@ -20,5 +20,10 @@ namespace EindWerk_CinemaTicket.Controllers
             var allMovies = await _service.GetAllAsync(n=>n.CinemaHall);
             return View(allMovies);
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var movieDetails = await _service.GetMovieByIdAsync(id);
+            return View(movieDetails);
+        }
     }
 }
