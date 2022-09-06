@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <img src="@item.ProfilePictureURL" width="20%"  alt="@item.FullName">
+                <img class="border-info rounded-circle" src="@item.ProfilePictureURL" width="30%"  alt="@item.FullName">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FullName)
