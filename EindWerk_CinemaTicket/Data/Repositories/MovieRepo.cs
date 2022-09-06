@@ -48,7 +48,6 @@ namespace EindWerk_CinemaTicket.Data.Repositories
             response.CinemaHalls=await _context.CinemaHalls.OrderBy(n=>n.Name).ToListAsync();
             response.Genres=await _context.Genres.OrderBy(n=>n.GenreName).ToListAsync();
             return response;
-
         }
 
         public async Task<Movie> GetMovieByIdAsync(int id)
