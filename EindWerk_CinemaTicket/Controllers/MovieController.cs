@@ -32,8 +32,8 @@ namespace EindWerk_CinemaTicket.Controllers
         {
             var dropdownsData = await _service.GetDropdownsValues();
             ViewBag.CinemaHalls = new SelectList(dropdownsData.CinemaHalls, "Id", "Name");
-            ViewBag.Genres = new SelectList(dropdownsData.CinemaHalls, "Id", "GenreName");
-            ViewBag.Actors = new SelectList(dropdownsData.CinemaHalls, "Id", "FullName");
+            ViewBag.Genres = new SelectList(dropdownsData.Genres, "Id", "GenreName");
+            ViewBag.Actors = new SelectList(dropdownsData.Actors, "Id", "FullName");
             return View();
         }
         [HttpPost]
@@ -43,8 +43,8 @@ namespace EindWerk_CinemaTicket.Controllers
             {
                 var dropdownsData = await _service.GetDropdownsValues();
                 ViewBag.CinemaHalls = new SelectList(dropdownsData.CinemaHalls, "Id", "Name");
-                ViewBag.Genres = new SelectList(dropdownsData.CinemaHalls, "Id", "GenreName");
-                ViewBag.Actors = new SelectList(dropdownsData.CinemaHalls, "Id", "FullName");
+                ViewBag.Genres = new SelectList(dropdownsData.Genres, "Id", "GenreName");
+                ViewBag.Actors = new SelectList(dropdownsData.Actors, "Id", "FullName");
                 return View();
             }
             await _service.CreateNewMovieAsync(movie);
