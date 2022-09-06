@@ -22,16 +22,16 @@ namespace EindWerk_CinemaTicket.Data
 
             modelBuilder.Entity<Genre>().HasData
                 (
-                new Genre { Id = 1, GenreName = "Action"},
-                new Genre { Id = 2, GenreName = "Comedy"},
-                new Genre { Id = 3, GenreName = "Drama"},
-                new Genre { Id = 4, GenreName = "Fantasy"},
-                new Genre { Id = 5, GenreName = "Horror"},
-                new Genre { Id = 6, GenreName = "Thriller"},
-                new Genre { Id = 7, GenreName = "Adventure"},
-                new Genre { Id = 8, GenreName = "Romantic"},
-                new Genre { Id = 9, GenreName = "Family"},
-                new Genre { Id = 10, GenreName = "Cartoon"}
+                new Genre { Id = 1, GenreName = "Action", Description="/images/GenreCards/Action.jpg"},
+                new Genre { Id = 2, GenreName = "Comedy", Description = "/images/GenreCards/Comedy.jpg" },
+                new Genre { Id = 3, GenreName = "Drama", Description = "/images/GenreCards/Drama.jpg" },
+                new Genre { Id = 4, GenreName = "Fantasy", Description = "/images/GenreCards/Fantasy.jpg" },
+                new Genre { Id = 5, GenreName = "Horror", Description = "/images/GenreCards/Horror.jpg" },
+                new Genre { Id = 6, GenreName = "Crime", Description = "/images/GenreCards/Crime.jpg" },
+                new Genre { Id = 7, GenreName = "Adventure", Description = "/images/GenreCards/Adventure.jpg" },
+                new Genre { Id = 8, GenreName = "Romantic", Description = "/images/GenreCards/Romance.jpg" },
+                new Genre { Id = 9, GenreName = "Science Fiction", Description = "/images/GenreCards/ScienceFiction.jpg" },
+                new Genre { Id = 10, GenreName = "Cartoon", Description = "/images/GenreCards/Cartoon.jpg" }
                 );
             modelBuilder.Entity<CinemaHall>().HasData
                (
@@ -111,7 +111,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieName = "Alice Through the Looking Glass",
                     Description = "Alice is appointed to save her beloved Mad Hatter from deadly grief by travelling back to the past, but this means fatally harming Time himself, the noble clockwork man with the device needed to save the Hatter's family from the Red Queen.",
                     Image = "/images/AliceInWonderland.jpg",
-                    GenreId = 9,
+                    GenreId = 4,
                     CinemaHallId = 2,
                     Price = 20
                 },

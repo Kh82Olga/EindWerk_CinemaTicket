@@ -14,6 +14,7 @@ namespace EindWerk_CinemaTicket.Models
         [Required (ErrorMessage ="Name is required")]
         [StringLength(30, MinimumLength = 3, ErrorMessage ="Name must be between 3 and 30 chars")]
         public string GenreName { get; set; }
+        public string Description { get; set; }
         public virtual List<Movie> Movies { get; set; }
     }
 }
