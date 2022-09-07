@@ -163,6 +163,10 @@ namespace EindWerk_CinemaTicket.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<CinemaHall> CinemaHalls { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
 
     }
 }
