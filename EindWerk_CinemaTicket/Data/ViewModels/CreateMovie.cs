@@ -7,7 +7,8 @@ namespace EindWerk_CinemaTicket.Models
 {
     public class CreateMovie
     {
-       [Display(Name="Movie Name")]
+        public int Id { get; set; }
+        [Display(Name="Movie Name")]
        [Required(ErrorMessage ="Name is Required")]
         public string MovieName { get; set; }
         [Display(Name = "Movie Description")]

@@ -59,5 +59,34 @@ namespace EindWerk_CinemaTicket.Data.Repositories
                 .FirstOrDefaultAsync(n=>n.Id==id);
             return movieDetails;
         }
+
+        public async Task UpdateMovieAsync(CreateMovie data)
+        {
+            var dbMovie=await _context.Movies.FirstOrDefaultAsync(n=>n.Id == data.Id);
+            if (dbMovie != null)
+            {
+                dbMovie.MovieName = data.MovieName;
+                dbMovie.Description = data.Description;
+                dbMovie.Price = data.Price;
+                dbMovie.Image = data.Image;
+                dbMovie.GenreId = data.GenreId;
+                dbMovie.CinemaHallId = data.CinemaHallId;
+                await _context.SaveChangesAsync();
+            }
+            var deleteExistingActors = _context.ActorMovies.Where(n=>n.MovieId==data.Id).ToList();
+            _context.ActorMovies.RemoveRange(deleteExistingActors);
+            await _context.SaveChangesAsync();
+          
+            foreach (var actorId in data.ActorIds)
+            {
+                var newActorMovie = new ActorMovie()
+                {
+                    MovieId = data.Id,
+                    ActorId = actorId
+                };
+                await _context.ActorMovies.AddAsync(newActorMovie);
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }
