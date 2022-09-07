@@ -22,6 +22,16 @@ namespace EindWerk_CinemaTicket.Controllers
             var allMovies = await _service.GetAllAsync(n=>n.CinemaHall);
             return View(allMovies);
         }
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allMovies = await _service.GetAllAsync(n => n.CinemaHall);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredResult= allMovies.Where(n=>n.MovieName.Contains(searchString)||n.Description.Contains(searchString)).ToList();
+                return View("Index", filteredResult);
+            }
+            return View("Index", allMovies);
+        }
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
