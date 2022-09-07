@@ -7,7 +7,9 @@
 <h1>Cinema technologies</h1>
 
 @await Html.PartialAsync("_CreatePartialView","CinemaHall")
-<table class="table">
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
     <thead>
         <tr>
             <th>
@@ -43,3 +45,5 @@
 }
     </tbody>
 </table>
+    </div>
+</div>
