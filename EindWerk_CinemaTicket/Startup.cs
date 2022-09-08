@@ -1,8 +1,10 @@
 using EindWerk_CinemaTicket.Data;
 using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.Repositories;
+using EindWerk_CinemaTicket.Data.ShopCart;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -36,6 +38,10 @@ namespace EindWerk_CinemaTicket
             services.AddScoped<IGenre, GenreRepo>();
             services.AddScoped<ICinemaHall, CinemaHallRepo>();
             services.AddScoped<IMovie, MovieRepo>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetCart(sc));
+
+            services.AddSession();
             
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -64,6 +70,7 @@ namespace EindWerk_CinemaTicket
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

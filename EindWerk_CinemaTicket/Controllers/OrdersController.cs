@@ -15,7 +15,7 @@ namespace EindWerk_CinemaTicket.Controllers
             _shoppingCart=shoppingCart;
         }
 
-        public IActionResult Index()
+        public IActionResult ShoppingCart()
         {
             var items = _shoppingCart.GetShoppingCartItems();
             _shoppingCart.ShoppingCartItems = items;
