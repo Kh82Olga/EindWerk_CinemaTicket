@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EindWerk_CinemaTicket.Data.ShoppingCart
+namespace EindWerk_CinemaTicket.Data.ShopCart
 {
     public class ShoppingCart
     {
@@ -31,6 +31,23 @@ namespace EindWerk_CinemaTicket.Data.ShoppingCart
             {
                 shoppingCartItem.Amount++;
             }
+            _context.SaveChanges();
+        }
+        public void RemoveFromCart(Movie movie)
+        {
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+            if (shoppingCartItem != null)
+            {
+                if (shoppingCartItem.Amount>1)
+                {
+                    shoppingCartItem.Amount--;
+                }
+                else
+                {
+                    _context.ShoppingCartItems.Remove(shoppingCartItem);
+                }               
+            }
+            
             _context.SaveChanges();
         }
         public List<ShoppingCartItem> GetShoppingCartItems()
