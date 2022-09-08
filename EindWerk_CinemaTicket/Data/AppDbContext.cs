@@ -41,16 +41,16 @@ namespace EindWerk_CinemaTicket.Data
                new CinemaHall { Id = 4, Name ="Screen X", Logo = "/images/Logo/screenx.jpg", Description = "Panoramic viewing experience by expanding the screen on the side walls"}    
                );
             modelBuilder.Entity<Actor>().HasData(
-                new Actor { Id = 1, FullName = "Johnny Depp", ProfilePictureURL = "/images/ImgActors/JohnnyDepp.jpg" },
-                new Actor { Id = 2, FullName = "Orlando Bloom", ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg" },
-                new Actor { Id = 3, FullName = "Geoffrey Rush", ProfilePictureURL = "/images/ImgActors/GeoffreyRush.jpg" },
-                new Actor { Id = 4, FullName = "Keira Knightley", ProfilePictureURL = "/images/ImgActors/KeiraKnightley.jpg" },
-                new Actor { Id = 5, FullName = "Alan Rickman", ProfilePictureURL = "/images/ImgActors/AlanRickman.jpg" },
-                new Actor { Id = 6, FullName = "Jude Law", ProfilePictureURL = "/images/ImgActors/JudeLaw.jpg" },
-                new Actor { Id = 7, FullName = "Eddie Redmayne", ProfilePictureURL = "/images/ImgActors/EddieRedmayne.jpg" },
-                new Actor { Id = 8, FullName = "Dan Fogler", ProfilePictureURL = "/images/ImgActors/DanFogler.jpg" },
-                new Actor { Id = 9, FullName = "Jack Davenport", ProfilePictureURL = "/images/ImgActors/JackDavenport.jpg" },
-                new Actor { Id = 10, FullName = "Helena Bonham Carter", ProfilePictureURL = "/images/ImgActors/HelenaBCarter.jpg" }
+                new Actor { Id = 1, FullName = "Johnny Depp", ProfilePictureURL = "/images/ImgActors/JohnnyDepp.jpg", Imdb= "https://www.imdb.com/name/nm0000136/bio?ref_=nm_ov_bio_sm" },
+                new Actor { Id = 2, FullName = "Orlando Bloom", ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg", Imdb= "https://www.imdb.com/name/nm0089217/bio?ref_=nm_ql_1" },
+                new Actor { Id = 3, FullName = "Geoffrey Rush", ProfilePictureURL = "/images/ImgActors/GeoffreyRush.jpg", Imdb = "https://www.imdb.com/name/nm0001691/bio?ref_=nm_ql_1" },
+                new Actor { Id = 4, FullName = "Keira Knightley", ProfilePictureURL = "/images/ImgActors/KeiraKnightley.jpg", Imdb = "https://www.imdb.com/name/nm0461136/bio?ref_=nm_ql_1" },
+                new Actor { Id = 5, FullName = "Alan Rickman", ProfilePictureURL = "/images/ImgActors/AlanRickman.jpg", Imdb = "https://www.imdb.com/name/nm0000614/bio?ref_=nm_ql_1" },
+                new Actor { Id = 6, FullName = "Jude Law", ProfilePictureURL = "/images/ImgActors/JudeLaw.jpg", Imdb = "https://www.imdb.com/name/nm0000179/bio?ref_=nm_ql_1" },
+                new Actor { Id = 7, FullName = "Eddie Redmayne", ProfilePictureURL = "/images/ImgActors/EddieRedmayne.jpg", Imdb = "https://www.imdb.com/name/nm1519666/bio?ref_=nm_ql_1" },
+                new Actor { Id = 8, FullName = "Dan Fogler", ProfilePictureURL = "/images/ImgActors/DanFogler.jpg", Imdb = "https://www.imdb.com/name/nm0283945/bio?ref_=nm_ql_1" },
+                new Actor { Id = 9, FullName = "Jack Davenport", ProfilePictureURL = "/images/ImgActors/JackDavenport.jpg", Imdb = "https://www.imdb.com/name/nm0202603/bio?ref_=nm_ql_1" },
+                new Actor { Id = 10, FullName = "Helena Bonham Carter", ProfilePictureURL = "/images/ImgActors/HelenaBCarter.jpg", Imdb = "https://www.imdb.com/name/nm0000307/bio?ref_=nm_ql_1" }
 
                 );
             modelBuilder.Entity<Movie>().HasData

@@ -4,14 +4,16 @@ using EindWerk_CinemaTicket.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EindWerk_CinemaTicket.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220908094356_imdb")]
+    partial class imdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,63 +55,54 @@ namespace EindWerk_CinemaTicket.Migrations
                         {
                             Id = 2,
                             FullName = "Orlando Bloom",
-                            Imdb = "https://www.imdb.com/name/nm0089217/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/OrlandoBloom.jpg"
                         },
                         new
                         {
                             Id = 3,
                             FullName = "Geoffrey Rush",
-                            Imdb = "https://www.imdb.com/name/nm0001691/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/GeoffreyRush.jpg"
                         },
                         new
                         {
                             Id = 4,
                             FullName = "Keira Knightley",
-                            Imdb = "https://www.imdb.com/name/nm0461136/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/KeiraKnightley.jpg"
                         },
                         new
                         {
                             Id = 5,
                             FullName = "Alan Rickman",
-                            Imdb = "https://www.imdb.com/name/nm0000614/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/AlanRickman.jpg"
                         },
                         new
                         {
                             Id = 6,
                             FullName = "Jude Law",
-                            Imdb = "https://www.imdb.com/name/nm0000179/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/JudeLaw.jpg"
                         },
                         new
                         {
                             Id = 7,
                             FullName = "Eddie Redmayne",
-                            Imdb = "https://www.imdb.com/name/nm1519666/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/EddieRedmayne.jpg"
                         },
                         new
                         {
                             Id = 8,
                             FullName = "Dan Fogler",
-                            Imdb = "https://www.imdb.com/name/nm0283945/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/DanFogler.jpg"
                         },
                         new
                         {
                             Id = 9,
                             FullName = "Jack Davenport",
-                            Imdb = "https://www.imdb.com/name/nm0202603/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/JackDavenport.jpg"
                         },
                         new
                         {
                             Id = 10,
                             FullName = "Helena Bonham Carter",
-                            Imdb = "https://www.imdb.com/name/nm0000307/bio?ref_=nm_ql_1",
                             ProfilePictureURL = "/images/ImgActors/HelenaBCarter.jpg"
                         });
                 });

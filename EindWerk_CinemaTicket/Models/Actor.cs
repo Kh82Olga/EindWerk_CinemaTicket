@@ -15,6 +15,7 @@ namespace EindWerk_CinemaTicket.Models
         [Display(Name = "Name")]
         [Required(ErrorMessage = "Actor's name is required")]
         public string FullName { get; set;}
+        public string Imdb { get; set; }
         public virtual List<ActorMovie> ActorMovies { get; set; }
 
     }
