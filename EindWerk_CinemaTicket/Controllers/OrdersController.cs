@@ -27,12 +27,21 @@ namespace EindWerk_CinemaTicket.Controllers
             };
             return View(result);
         }
-        public async Task <RedirectToActionResult> AddToShoppingCart(int id)
+        public async Task <IActionResult> AddToShoppingCart(int id)
         {
             var item = await _movie.GetMovieByIdAsync(id);
             if (item != null)
             {
                 _shoppingCart.AddToCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
+        }
+        public async Task<IActionResult> RemoveFromShoppingCart(int id)
+        {
+            var item = await _movie.GetMovieByIdAsync(id);
+            if (item != null)
+            {
+                _shoppingCart.RemoveFromCart(item);
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
