@@ -2,6 +2,7 @@
 using EindWerk_CinemaTicket.Data.ShopCart;
 using EindWerk_CinemaTicket.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
@@ -25,6 +26,15 @@ namespace EindWerk_CinemaTicket.Controllers
                 ShoppingCartTotal = _shoppingCart.GetTotal()
             };
             return View(result);
+        }
+        public async Task <RedirectToActionResult> AddToShoppingCart(int id)
+        {
+            var item = await _movie.GetMovieByIdAsync(id);
+            if (item != null)
+            {
+                _shoppingCart.AddToCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
         }
     }
 }
