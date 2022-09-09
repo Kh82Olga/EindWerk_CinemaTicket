@@ -17,7 +17,12 @@ namespace EindWerk_CinemaTicket.Controllers
             _shoppingCart=shoppingCart;
             _order=order;
         }
-
+        public async Task<IActionResult> Index()
+        {
+            string userId = "";
+            var orders = await _order.GetOrdersByUserIdAsync(userId);
+            return View(orders);
+        }
         public IActionResult ShoppingCart()
         {
             var items = _shoppingCart.GetShoppingCartItems();
