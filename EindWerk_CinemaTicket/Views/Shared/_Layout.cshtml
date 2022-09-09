@@ -13,14 +13,14 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index"><img src="" />Cinema Ticket</a>
+                <a class="navbar-brand" asp-controller="Movies" asp-action="Index"><img src="" />Cinema Ticket</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="navbar-nav flex-grow-1 ">
+                        <li class="nav item">
                             <a class="nav-link text-dark" asp-controller="Movie" asp-action="Index"><i class="badge-info bi-film"></i>Movies</a>
                         </li>
 
@@ -37,10 +37,14 @@
                             </div>
                          </li>
                      </ul>
+                     
                         <form class="form-inline my-2 my-lg-0" asp-controller="Movie" asp-action="Filter" style="padding-right: 25px;">
                             <input name="searchString" type="text" class="form-control" placeholder="Search a movie"/>
                             <button class="btn btn-outline-success my-2 my-sm-1" type="submit"><i class="bi bi-search"></i></button>
                         </form>
+                     <ul class="navbar-nav" style="font-size:25px">
+                          @await Component.InvokeAsync("CartSummary")
+                     </ul>
                 </div>
             </div>
         </nav>

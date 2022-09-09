@@ -38,6 +38,7 @@ namespace EindWerk_CinemaTicket
             services.AddScoped<IGenre, GenreRepo>();
             services.AddScoped<ICinemaHall, CinemaHallRepo>();
             services.AddScoped<IMovie, MovieRepo>();
+            services.AddScoped<IOrder, OrderRepo>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetCart(sc));
 

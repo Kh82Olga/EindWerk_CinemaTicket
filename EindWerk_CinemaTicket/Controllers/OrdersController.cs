@@ -10,10 +10,12 @@ namespace EindWerk_CinemaTicket.Controllers
     {
         private readonly IMovie _movie;
         private readonly ShoppingCart _shoppingCart;
-        public OrdersController(IMovie movie, ShoppingCart shoppingCart)
+        private readonly IOrder _order;
+        public OrdersController(IMovie movie, ShoppingCart shoppingCart, IOrder order)
         {
             _movie=movie;
             _shoppingCart=shoppingCart;
+            _order=order;
         }
 
         public IActionResult ShoppingCart()
@@ -44,6 +46,16 @@ namespace EindWerk_CinemaTicket.Controllers
                 _shoppingCart.RemoveFromCart(item);
             }
             return RedirectToAction(nameof(ShoppingCart));
+        }
+        public async Task<IActionResult> CompleteOrder()
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            string userId = "";
+            string userEmail = "";
+
+            await _order.StoreOrderAsync(items, userId, userEmail);
+            await _shoppingCart.ClearShoppingCartAsync();
+            return View("OrderCompleted");
         }
     }
 }
