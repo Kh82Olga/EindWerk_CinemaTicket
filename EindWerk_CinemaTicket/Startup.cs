@@ -2,6 +2,8 @@ using EindWerk_CinemaTicket.Data;
 using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.Repositories;
 using EindWerk_CinemaTicket.Data.ShopCart;
+using EindWerk_CinemaTicket.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -45,10 +47,13 @@ namespace EindWerk_CinemaTicket
             services.AddSession();
             
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddDefaultUI()
-                .AddDefaultTokenProviders()
-                .AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddMemoryCache();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
+                
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -83,6 +88,7 @@ namespace EindWerk_CinemaTicket
                     pattern: "{controller=Movie}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
         }
     }
 }
