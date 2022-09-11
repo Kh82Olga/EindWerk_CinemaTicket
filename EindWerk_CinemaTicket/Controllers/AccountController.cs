@@ -54,5 +54,37 @@ namespace EindWerk_CinemaTicket.Controllers
             var result = new RegisterVM();
             return View(result);
         }
+        [HttpPost]
+        public async Task<IActionResult>Register(RegisterVM registerVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(registerVM);
+            }
+            var user = await _userManager.FindByEmailAsync(registerVM.EmailAddress);
+            if (user !=null)
+            {
+                TempData["Error"] = "This mail address is already in use";
+                return View(registerVM);
+            }
+            var newUser = new User()
+            {
+                UserName = registerVM.EmailAddress,
+                Email = registerVM.EmailAddress,
+                FullName = registerVM.FullName
+            };
+            var newUserResponse= await _userManager.CreateAsync(newUser,registerVM.Password);
+            if (newUserResponse.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+            }
+            return View("RegisterCompleted");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Movie");
+        }
     }
 }
