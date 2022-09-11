@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.Admin)]
     public class MovieController : Controller
     {
         private readonly IMovie _service;

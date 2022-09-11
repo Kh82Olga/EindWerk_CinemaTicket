@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRoles.Admin)]
     public class ActorController : Controller
     {
         private readonly IActor _service ;

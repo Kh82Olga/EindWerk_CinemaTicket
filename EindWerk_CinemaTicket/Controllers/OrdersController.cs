@@ -1,4 +1,5 @@
-﻿using EindWerk_CinemaTicket.Data.Interfaces;
+﻿using EindWerk_CinemaTicket.Data;
+using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.ShopCart;
 using EindWerk_CinemaTicket.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
