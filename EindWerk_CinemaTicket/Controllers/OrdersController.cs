@@ -2,6 +2,7 @@
 using EindWerk_CinemaTicket.Data.ShopCart;
 using EindWerk_CinemaTicket.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
@@ -19,8 +20,9 @@ namespace EindWerk_CinemaTicket.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            string userId = "";
-            var orders = await _order.GetOrdersByUserIdAsync(userId);
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
+            var orders = await _order.GetOrdersByUserIdAndRoleAsync(userId,userRole);
             return View(orders);
         }
         public IActionResult ShoppingCart()
@@ -55,8 +57,8 @@ namespace EindWerk_CinemaTicket.Controllers
         public async Task<IActionResult> CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();
-            string userId = "";
-            string userEmail = "";
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmail = User.FindFirstValue(ClaimTypes.Email); 
 
             await _order.StoreOrderAsync(items, userId, userEmail);
             await _shoppingCart.ClearShoppingCartAsync();

@@ -3,6 +3,7 @@ using EindWerk_CinemaTicket.Data.ViewModels;
 using EindWerk_CinemaTicket.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
@@ -18,6 +19,11 @@ namespace EindWerk_CinemaTicket.Controllers
             _userManager=userManager;
             _signInManager=signInManager;
             _context=context;
+        }
+        public async Task<IActionResult> AllUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
         }
         public IActionResult Login()
         {
