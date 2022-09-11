@@ -23,8 +23,9 @@
                         <li class="nav item">
                             <a class="nav-link text-dark" asp-controller="Movie" asp-action="Index"><i class="badge-info bi-film"></i>Movies</a>
                         </li>
-
-                        <li class="nav-item dropdown">
+                        @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                          <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle='dropdown'
                                aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-gear" style=""></i>Management
@@ -36,6 +37,8 @@
                                 <a class="dropdown-item" asp-controller="Actor" asp-action="Index"><i class="bi bi-person-square"></i>Actors</a>
                             </div>
                          </li>
+                        }
+                        
                      </ul>              
                         <form class="form-inline my-2 my-lg-0" asp-controller="Movie" asp-action="Filter" style="padding-right: 100px;">
                             <input name="searchString" type="text" class="form-control" placeholder="Search a movie"/>
