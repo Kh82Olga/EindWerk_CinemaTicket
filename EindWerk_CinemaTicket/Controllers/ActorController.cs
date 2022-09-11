@@ -2,12 +2,14 @@
 using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.Repositories;
 using EindWerk_CinemaTicket.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
+    [Authorize]
     public class ActorController : Controller
     {
         private readonly IActor _service ;
@@ -16,6 +18,7 @@ namespace EindWerk_CinemaTicket.Controllers
         {
             _service=service;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var actors = await _service.GetAllAsync();
@@ -38,6 +41,7 @@ namespace EindWerk_CinemaTicket.Controllers
             
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);

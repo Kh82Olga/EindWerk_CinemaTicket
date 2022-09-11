@@ -1,12 +1,14 @@
 ﻿using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Data.ShopCart;
 using EindWerk_CinemaTicket.Data.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly IMovie _movie;

@@ -1,6 +1,7 @@
 ﻿using EindWerk_CinemaTicket.Data;
 using EindWerk_CinemaTicket.Data.Interfaces;
 using EindWerk_CinemaTicket.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace EindWerk_CinemaTicket.Controllers
 {
+    [Authorize]
     public class GenreController : Controller
     {
         private readonly IGenre _service;
@@ -16,12 +18,14 @@ namespace EindWerk_CinemaTicket.Controllers
         {
             _service = service;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allGenres = await _service.GetAllAsync();
             return View(allGenres);
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var genreDetails = await _service.GetByIdAsync(id);
