@@ -29,10 +29,9 @@ namespace EindWerk_CinemaTicket.Data
                 new Genre { Id = 4, GenreName = "Fantasy", Description = "/images/GenreCards/Fantasy.jpg" },
                 new Genre { Id = 5, GenreName = "Horror", Description = "/images/GenreCards/Horror.jpg" },
                 new Genre { Id = 6, GenreName = "Crime", Description = "/images/GenreCards/Crime.jpg" },
-                new Genre { Id = 7, GenreName = "Adventure", Description = "/images/GenreCards/Adventure.jpg" },
-                new Genre { Id = 8, GenreName = "Romantic", Description = "/images/GenreCards/Romance.jpg" },
-                new Genre { Id = 9, GenreName = "Science Fiction", Description = "/images/GenreCards/ScienceFiction.jpg" },
-                new Genre { Id = 10, GenreName = "Cartoon", Description = "/images/GenreCards/Cartoon.jpg" }
+                new Genre { Id = 7, GenreName = "Romantic", Description = "/images/GenreCards/Romance.jpg" },
+                new Genre { Id = 8, GenreName = "Science Fiction", Description = "/images/GenreCards/ScienceFiction.jpg" },
+                new Genre { Id = 9, GenreName = "Cartoon", Description = "/images/GenreCards/Cartoon.jpg" }
                 );
             modelBuilder.Entity<CinemaHall>().HasData
                (
@@ -82,7 +81,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieName = "Pirates of the Caribbean: Dead Man's Chest",
                     Description = "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service, as other friends and foes seek the heart for their own agenda as well.",
                     Image = "/images/PiratesChest.jpg",
-                    GenreId = 7,
+                    GenreId = 1,
                     CinemaHallId = 3,
                     Price = 20
                 },
@@ -92,7 +91,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieName = "Pirates of the Caribbean: At World's End",
                     Description = "Captain Barbossa, Will Turner and Elizabeth Swann must sail off the edge of the map, navigate treachery and betrayal, find Jack Sparrow, and make their final alliances for one last decisive battle.",
                     Image = "/images/PiratesWorldsEnd.jpg",
-                    GenreId = 7,
+                    GenreId = 1,
                     CinemaHallId= 4,
                     Price = 20
                 },
@@ -102,7 +101,7 @@ namespace EindWerk_CinemaTicket.Data
                     MovieName = "Pirates of the Caribbean: The Curse of the Black Pearl",
                     Description = "Blacksmith Will Turner teams up with eccentric pirate Captain Jack Sparrow to save his love, the governor's daughter, from Jack's former pirate allies, who are now undead.",
                     Image = "/images/PiratesBlackPearl.jpg",
-                    GenreId = 7,
+                    GenreId = 1,
                     CinemaHallId = 1,
                     Price = 20
                 },
