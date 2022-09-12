@@ -22,17 +22,18 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav item">
                             <a class="nav-link text-dark" asp-controller="Movie" asp-action="Index"><i class="badge-info bi-film"></i>Movies</a>
+                            <a class="nav-link text-dark" asp-controller="Actor" asp-action="Index"><i class="badge-info bi-person-video2"></i>Actors</a>
                         </li>
                         @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                           <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle='dropdown'
                                aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear" style=""></i>Management
+                                <i class="bi bi-tools" style=""></i>Management
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="CinemaHall" asp-action="Index"><i class="bi bi-headset"></i>Cinema Halls</a>
+                                <a class="dropdown-item" asp-controller="CinemaHall" asp-action="Index"><i class="bi bi-emoji-sunglasses"></i>Cinema Halls</a>
                                 <a class="dropdown-item" asp-controller="Genre" asp-action="Index"><i class="bi bi-camera-reels"></i>Genres</a>
                                 <a class="dropdown-item" asp-controller="Actor" asp-action="Index"><i class="bi bi-person-square"></i>Actors</a>
                             </div>
