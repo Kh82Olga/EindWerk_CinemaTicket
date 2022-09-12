@@ -18,7 +18,7 @@ body {
   background-size:100%;
   margin-bottom: 60px;
 }
-table {
+table,dl {
     background: rgb(255, 255, 255,0.5);
 }
 
