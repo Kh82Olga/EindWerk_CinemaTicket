@@ -14,5 +14,19 @@ html {
 }
 
 body {
+  background-image: url(/images/film-background-04.jpg);
+  background-size:100%;
   margin-bottom: 60px;
+}
+table {
+    background: rgb(255, 255, 255,0.5);
+}
+
+th {
+    background-color: Highlight;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: rgb(300, 300, 300,0.5);
 }
