@@ -26,7 +26,7 @@ namespace EindWerk_CinemaTicket.Data
                         FullName = "Admin User",
                         UserName = "admin-user",
                         Email = adminUserEmail,
-                        EmailConfirmed = true,
+                        EmailConfirmed = true
                     };
                     await userManager.CreateAsync(newAdminUser,"Johnny1234?");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
@@ -40,7 +40,7 @@ namespace EindWerk_CinemaTicket.Data
                         FullName = "Application User",
                         UserName = "simple-user",
                         Email = simpleUserEmail,
-                        EmailConfirmed = true,
+                        EmailConfirmed = true
                     };
                     await userManager.CreateAsync(newSimpleUser, "Johnny1234?");
                     await userManager.AddToRoleAsync(newSimpleUser, UserRoles.User);
