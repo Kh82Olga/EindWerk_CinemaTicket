@@ -34,3 +34,6 @@ tr:hover {
 dl {
     background-color: rgb(300, 300, 300,0.5);
 }
+th{
+    font-size:20px;
+}
