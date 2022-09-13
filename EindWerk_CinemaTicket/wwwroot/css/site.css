@@ -18,15 +18,19 @@ body,nav {
   background-size:100%;
   margin-bottom: 60px;
 }
-table,dl {
+table {
     background: rgb(255, 255, 255,0.5);
 }
 
-th {
+td {
     background-color: Highlight;
     text-align: center;
+    font-weight:bold;
 }
 
 tr:hover {
+    background-color: rgb(300, 300, 300,0.5);
+}
+dl {
     background-color: rgb(300, 300, 300,0.5);
 }
